@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-key */
 import "./App.css";
 import "./scss/app.scss";
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import PizzaBlock from "./components/PizzaBlock";
+import pizzas from "./assets/pizzas.json";
 
 function App() {
   return (
@@ -17,8 +19,15 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            <PizzaBlock title="Пицца вкусная" price={500} />
-            <PizzaBlock title="Пицца невкусная" price={1000} />
+            {pizzas.map((pizza) => (
+              <PizzaBlock
+                title={pizza.title}
+                price={pizza.price}
+                image={pizza.imageUrl}
+                sizes={pizza.sizes}
+                types={pizza.types}
+              />
+            ))}
           </div>
         </div>
       </div>
