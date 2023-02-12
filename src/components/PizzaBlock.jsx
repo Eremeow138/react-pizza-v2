@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 
@@ -16,6 +17,7 @@ export default function PizzaBlock({ title, price, image, sizes, types }) {
         <ul>
           {types.map((type) => (
             <li
+              key={type}
               onClick={() => setActiveType(type)}
               className={activeType === type ? "active" : ""}
             >
@@ -26,6 +28,7 @@ export default function PizzaBlock({ title, price, image, sizes, types }) {
         <ul>
           {sizes.map((size, index) => (
             <li
+              key={index}
               onClick={() => setActiveSize(index)}
               className={activeSize === index ? "active" : ""}
             >
